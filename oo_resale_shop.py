@@ -1,5 +1,5 @@
 class ResaleShop:
-
+    
     # What attributes will it need?
 
     # How will you set up your constructor?
