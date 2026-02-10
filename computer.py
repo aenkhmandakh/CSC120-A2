@@ -20,7 +20,7 @@ class Computer:
         self.year_made= year_made
         self.price= price
 
-    # Made an update OS just incase?
+    # Made an update method just to test out
     def update(self, description: str, processor_type: str, 
                  hard_drive_capacity: int, memory: int, operating_system: str, year_made:int, price: int):
         self.description=description
@@ -32,6 +32,11 @@ class Computer:
         self.price= price
 
         return "The updated description is", description,processor_type, hard_drive_capacity, memory,operating_system,year_made,price
+    
+    
+    
+
+
     
 #testing out
 def main():

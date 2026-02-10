@@ -2,7 +2,7 @@
 from computer import *
 
 print("---------------Welcome to the Resale Shop!---------------\n")
-class ResaleShop:
+class resale_shop:
     inventory: list=[]
     #define resale shop constructor with the inventory (I am failing to see what other attributes I have to add besides inventory)
     def __init__(self, inventory=[]):
@@ -19,7 +19,7 @@ class ResaleShop:
         print(f"Yay you bought a new computer! Check the inventory!\n")
     
     #printing inventory function, no real attribute as it prints everything
-    def printInventory(self):
+    def print_inventory(self):
         #check if inventory is empty or not
         if self.inventory:
              print("Your inventory is:")
@@ -51,7 +51,7 @@ class ResaleShop:
            print("There is nothing in your inventory!\n")
 
     #updating price method, requires again the list numbers and the amount to change it to
-    def updatePrice(self, number_in_list:int, amt=float):  
+    def update_price(self, number_in_list:int, amt=float):  
         #checks if list is empty or not
         if self.inventory:
             #using similar way to find the numbered computer, this one specifically singles out the price and makes it equal to the new amount entered
@@ -78,7 +78,7 @@ class ResaleShop:
             print("Computer not found. Please select another item to refurbish.")
 
     #update OS method, not too sure if its accurate but I tried. Asks for the specific computer by the number and the string inputting the latest OS or any OS.
-    def updateOS(self, number_in_list:int, newOS= str):
+    def update_OS(self, number_in_list:int, newOS= str):
         #checks if inputted OS is equal to the current OS by calling the specific OS of computer.
         if self.inventory[number_in_list-1].operating_system == newOS:
             print("The computer's operating system is up to date!")
@@ -97,7 +97,7 @@ class ResaleShop:
 
 def main():
     #establishing shop and then testing out all the methods
-    shop=ResaleShop([])
+    shop=resale_shop([])
     shop.buy(
         description="Mac Pro (Late 2013)",
         processor_type="3.5 GHc 6-Core Intel Xeon E5",
@@ -114,13 +114,13 @@ def main():
         operating_system= "macOS Big Sur", 
         year_made=2020, 
         price=2000.99)
-    shop.printInventory()
+    shop.print_inventory()
     shop.sell(1)
-    shop.updatePrice(1, 3000.99)
-    shop.printInventory()
+    shop.update_price(1, 3000.99)
+    shop.print_inventory()
     shop.refurbish(1)
-    shop.updateOS(1, "macOS Tahoe")
-    shop.printInventory()
+    shop.update_OS(1, "macOS Tahoe")
+    shop.print_inventory()
 
 if __name__ == "__main__":
     main()
