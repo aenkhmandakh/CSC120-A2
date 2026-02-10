@@ -57,6 +57,15 @@ class ResaleShop:
          else:
             print("Computer not found. Please select another item to refurbish.")
 
+    def updateOS(self, number_in_list:int, newOS= str):
+        if self.inventory[number_in_list-1].operating_system == newOS:
+            print("The computer's operating system is up to date!")
+        else:
+           print("The computer's operating system is not up to date, updating in procces...\n") 
+           self.inventory[number_in_list-1].operating_system = newOS
+
+
+
         
 
 
@@ -86,6 +95,7 @@ def main():
     shop.updatePrice(1, 3000.99)
     shop.printInventory()
     shop.refurbish(1)
+    shop.updateOS(1, "macOS Tahoe")
     shop.printInventory()
 
 if __name__ == "__main__":
