@@ -1,4 +1,5 @@
 
+#establishes all the attributes of a computer
 class Computer:
     description: str=""
     processor_type: str="" 
@@ -8,10 +9,7 @@ class Computer:
     year_made: int= 0.0
     price: float=0.0
 
-    # What attributes will it need?
-
-    # How will you set up your constructor?
-    # Remember: in python, all constructors have the same name (__init__)
+    #constructor requireing all the specs of a computer, equaling it to the self
     def __init__(self, description: str, processor_type: str, 
                  hard_drive_capacity: int, memory: int, operating_system: str, year_made:int, price: float):
         self.description=description
@@ -22,9 +20,7 @@ class Computer:
         self.year_made= year_made
         self.price= price
 
-        pass # You'll remove this when you fill out your constructor
-
-    # What methods will you need?
+    # Made an update OS just incase?
     def update(self, description: str, processor_type: str, 
                  hard_drive_capacity: int, memory: int, operating_system: str, year_made:int, price: int):
         self.description=description
@@ -36,7 +32,8 @@ class Computer:
         self.price= price
 
         return "The updated description is", description,processor_type, hard_drive_capacity, memory,operating_system,year_made,price
-
+    
+#testing out
 def main():
     computerOne:Computer=Computer("Mac Pro (Late 2013)",
         "3.5 GHc 6-Core Intel Xeon E5",
