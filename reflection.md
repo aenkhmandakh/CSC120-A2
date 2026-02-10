@@ -1,3 +1,8 @@
 Use this file to record your reflection on this assignment. 
 
 What worked, what didn't, what advice would you give someone taking this course in the future?
+
+I think everything pretty much worked. It took a lot of time to optimize a lot of the methods and make it simple to read and understand. I was struggling to figure out which attributes should go to which, because I could see different ways of phrasing it. It might still be wrong but this is what I concluded with.
+I had some diffuculties connecting the computer constructor effeciently into the resale shop methods. I hadn't put it inside the buy method at first which made it even more complicated. The most difficult issue, however, was probably the sell method, as I couldn't find an effecient way to sell a specific computer without listing out every single attribute. I had a lot of errors where it couldn't find the computer based on what I had written, which caused me to look for a simpler way by using enumerate. This changed a lot of the way I had written the code and made it much more simpler to locate code.
+
+I think I would tell them to first fully understand what the procedural code is doing first, because this will give you knowledge of methods like append and remove. After that, my advice is probably just to just write down code and mess around. It took me a few hours of just combining the procedural knowledge with what I knew from the one card test and messing around. My code at the start was very messy and unoptimized but later on, when things started working and I could start debugging, it was much easier to cut extra stuff.
