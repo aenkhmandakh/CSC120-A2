@@ -8,7 +8,9 @@ class ResaleShop:
     def __init__(self):
         self.inventory= []
 
-    def buy(self, description,processor_type, hard_drive_capacity, memory,operating_system,year_made,price):
+      
+
+    def buy(self, description=str,processor_type=str, hard_drive_capacity=int, memory=int,operating_system=str,year_made=int,price=float):
         computer=Computer(description,processor_type, hard_drive_capacity, memory,operating_system,year_made,price)
         self.inventory.append(computer)
         print(f"Yay you bought a new computer! Check the inventory!\n")
@@ -18,23 +20,32 @@ class ResaleShop:
              print("Your inventory is:")
              for i, computer in enumerate(self.inventory, start=1):
                 print(f"------------------------------------------------------\n" 
-                      f"{i}: {computer.description},\n" 
-                      f"Processor Type:{computer.processor_type} \n"
-                      f"Hard Drive Capacity:{computer.hard_drive_capacity},\n" 
-                      f"Memory: {computer.memory},\n" 
+                      f"{i}: {computer.description}\n" 
+                      f"Processor Type:{computer.processor_type}\n"
+                      f"Hard Drive Capacity:{computer.hard_drive_capacity}\n" 
+                      f"Memory: {computer.memory}\n" 
                       f"Operating System: {computer.operating_system}\n"
-                      f"Year: {computer.year_made},\n" 
+                      f"Year: {computer.year_made}\n" 
                       f"Price: {computer.price}\n"
                       f"------------------------------------------------------\n")
         else: 
             print("There is nothing in the inventory.\n")
 
-    def sell(self, number_in_list):
+    def sell(self, number_in_list=int):
         if self.inventory:
          self.inventory.remove(self.inventory[number_in_list-1])
          print(f"You sold computer number {number_in_list} in the inventory. Check the inventory to see what's left!\n")
         else:
            print("There is noting in your inventory!\n")
+
+    def updatePrice(self, number_in_list:int, amt=float):  
+        if self.inventory:
+            self.inventory[number_in_list-1].price=amt
+        else:
+            print("Computer not found. Cannot update price.")
+
+        
+
 
 
 
@@ -59,6 +70,7 @@ def main():
         price=2000.99)
     shop.printInventory()
     shop.sell(1)
+    shop.updatePrice(1, 3000.99)
     shop.printInventory()
 
 if __name__ == "__main__":
