@@ -36,13 +36,26 @@ class ResaleShop:
          self.inventory.remove(self.inventory[number_in_list-1])
          print(f"You sold computer number {number_in_list} in the inventory. Check the inventory to see what's left!\n")
         else:
-           print("There is noting in your inventory!\n")
+           print("There is nothing in your inventory!\n")
 
     def updatePrice(self, number_in_list:int, amt=float):  
         if self.inventory:
             self.inventory[number_in_list-1].price=amt
         else:
             print("Computer not found. Cannot update price.")
+
+    def refurbish(self, number_in_list:int):
+         if self.inventory:
+                if self.inventory[number_in_list-1].year_made < 2000:
+                   self.inventory[number_in_list-1].price = 0 
+                elif self.inventory[number_in_list-1].year_made < 2012:
+                 self.inventory[number_in_list-1].price = 250 
+                elif self.inventory[number_in_list-1].year_made < 2018:
+                 self.inventory[number_in_list-1].price = 550
+                else:
+                 self.inventory[number_in_list-1].price = 1000 
+         else:
+            print("Computer not found. Please select another item to refurbish.")
 
         
 
@@ -71,6 +84,8 @@ def main():
     shop.printInventory()
     shop.sell(1)
     shop.updatePrice(1, 3000.99)
+    shop.printInventory()
+    shop.refurbish(1)
     shop.printInventory()
 
 if __name__ == "__main__":
