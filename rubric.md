@@ -17,11 +17,11 @@ __YES__ 1 pt: Constructor for `Computer` class is present and sets attributes co
 
 ### Level 2 (3 pts)
 
-__NO__ 1 pt: All expected attributes for `ResaleShop` class are present
+__YES__ 1 pt: All expected attributes for `ResaleShop` class are present
 
 __YES__ 1 pt: All expected methods for `ResaleShop` class are present
 
-__NO__ 1 pt: Constructor for `ResaleShop` class is present and sets attributes correctly
+__YES__ 1 pt: Constructor for `ResaleShop` class is present and sets attributes correctly
 
 ### Level 3 (4 pts)
 
