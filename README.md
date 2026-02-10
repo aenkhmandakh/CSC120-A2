@@ -23,7 +23,7 @@ This repository contains starter code for A2: Object-ification, developed for CS
   - updating a computer's price
   resale
   - updating a computer's OS
-  computer
+  resale
   - buying a computer (add to inventory)
   resale
   - selling a computer (remove from inventory)

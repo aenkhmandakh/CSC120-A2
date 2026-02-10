@@ -28,8 +28,8 @@ class resale_shop:
                 #just readbility stuff
                 print(f"------------------------------------------------------\n" 
                       f"{i}: {computer.description}\n" 
-                      f"Processor Type:{computer.processor_type}\n"
-                      f"Hard Drive Capacity:{computer.hard_drive_capacity}\n" 
+                      f"Processor Type: {computer.processor_type}\n"
+                      f"Hard Drive Capacity: {computer.hard_drive_capacity}\n" 
                       f"Memory: {computer.memory}\n" 
                       f"Operating System: {computer.operating_system}\n"
                       f"Year: {computer.year_made}\n" 
