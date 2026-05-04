@@ -121,6 +121,8 @@ def main():
     shop.refurbish(1)
     shop.update_OS(1, "macOS Tahoe")
     shop.print_inventory()
+    shop.sell(1)
+    shop.print_inventory()
 
 if __name__ == "__main__":
     main()
