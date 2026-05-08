@@ -10,9 +10,7 @@ class resale_shop:
 
       
     #buy method taking in all the specific computer specs to buy, specs are the same as the computer constructor because I will be inputting it into the constructor
-    def buy(self, description=str,processor_type=str, hard_drive_capacity=int, memory=int,operating_system=str,year_made=int,price=float):
-        #placeholder variable to make it easier to append the computer created from the constructor
-        computer=Computer(description,processor_type, hard_drive_capacity, memory,operating_system,year_made,price)
+    def buy(self, computer):
         #append into empty inventory list
         self.inventory.append(computer)
         #text for readibility
@@ -39,58 +37,55 @@ class resale_shop:
         else: 
             print("There is nothing in the inventory.\n")
 
-    #sell method, requires knowing the list numbers
-    def sell(self, number_in_list=int):
+    #sell method
+    def sell(self, computer):
         #check if list empty or not for error message
-        if self.inventory:
+        if len(self.inventory)>0:
          #removes from the list the specific number computer in the inventory list, minus zero to make up for the start = 1 I did earlier
-         self.inventory.remove(self.inventory[number_in_list-1])
-         print(f"You sold computer number {number_in_list} in the inventory. Check the inventory to see what's left!\n")
+         self.inventory.remove(computer)
+         print(f"You sold computer number {computer.description} in the inventory. Check the inventory to see what's left!\n")
         else:
            #error
            print("There is nothing in your inventory!\n")
 
-    #updating price method, requires again the list numbers and the amount to change it to
-    def update_price(self, number_in_list:int, amt=float):  
+    #updating price method
+    def update_price(self, computer, amt=float):  
         #checks if list is empty or not
-        if self.inventory:
+        if len(self.inventory)>0:
             #using similar way to find the numbered computer, this one specifically singles out the price and makes it equal to the new amount entered
-            self.inventory[number_in_list-1].price=amt
+            computer.price=amt
         else:
             #error
             print("Computer not found. Cannot update price.")
 
-    #refurbish method, again requires knowledge of the list and placing
-    def refurbish(self, number_in_list:int):
+    #refurbish method
+    def refurbish(self, computer):
          #checking if list empty
-         if self.inventory:
+         if len(self.inventory)>0:
                 #calls the specific number in list and singles out the year made and the price to make updates according to the manufacturing date
-                if self.inventory[number_in_list-1].year_made < 2000:
-                   self.inventory[number_in_list-1].price = 0 
-                elif self.inventory[number_in_list-1].year_made < 2012:
-                 self.inventory[number_in_list-1].price = 250 
-                elif self.inventory[number_in_list-1].year_made < 2018:
-                 self.inventory[number_in_list-1].price = 550
+                if computer.year_made < 2000:
+                    computer.price = 0 
+                elif computer.year_made < 2012:
+                    computer.price = 250 
+                elif computer.year_made < 2018:
+                    computer.price = 550
                 else:
-                 self.inventory[number_in_list-1].price = 1000 
+                    computer.price = 1000 
          else:
             #error
             print("Computer not found. Please select another item to refurbish.")
 
-    #update OS method, not too sure if its accurate but I tried. Asks for the specific computer by the number and the string inputting the latest OS or any OS.
-    def update_OS(self, number_in_list:int, newOS= str):
+    #update OS method
+    def update_OS(self, computer, newOS= str):
         #checks if inputted OS is equal to the current OS by calling the specific OS of computer.
-        if self.inventory[number_in_list-1].operating_system == newOS:
+        if computer.operating_system == newOS:
             print("The computer's operating system is up to date!")
         #easily updates OS to the new version (probably unlike reality)
         else:
            print("The computer's operating system is not up to date, updating in proccess...\n") 
-           self.inventory[number_in_list-1].operating_system = newOS
+           computer.operating_system = newOS
 
-
-
-        
-
+          
 
 
 
@@ -98,15 +93,14 @@ class resale_shop:
 def main():
     #establishing shop and then testing out all the methods
     shop=resale_shop([])
-    shop.buy(
-        description="Mac Pro (Late 2013)",
+    first_computer= Computer(description="Mac Pro (Late 2013)",
         processor_type="3.5 GHc 6-Core Intel Xeon E5",
         hard_drive_capacity=1024, 
         memory=64,
         operating_system= "macOS Big Sur", 
         year_made=2013, 
         price=1500.99)
-    shop.buy(
+    second_computer= Computer(
         description="Mac Pro (Late 2020)",
         processor_type="3.5 GHc 6-Core Intel Xeon E5",
         hard_drive_capacity=1024, 
@@ -114,14 +108,16 @@ def main():
         operating_system= "macOS Big Sur", 
         year_made=2020, 
         price=2000.99)
+    shop.buy(first_computer)
+    shop.buy(second_computer)
     shop.print_inventory()
-    shop.sell(1)
-    shop.update_price(1, 3000.99)
+    shop.sell(second_computer)
+    shop.update_price(second_computer, 3000.99)
     shop.print_inventory()
-    shop.refurbish(1)
-    shop.update_OS(1, "macOS Tahoe")
+    shop.refurbish(first_computer)
+    shop.update_OS(first_computer, "macOS Tahoe")
     shop.print_inventory()
-    shop.sell(1)
+    shop.sell(first_computer)
     shop.print_inventory()
 
 if __name__ == "__main__":
